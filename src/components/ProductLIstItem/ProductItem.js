@@ -34,7 +34,7 @@ const ProductItem = ({ data }) => {
 
   return (
     <StyledProductItem expand={expand}>
-      <img src={data.image} alt="product-image" />
+      <img src={data.image} alt={data.name} />
       <div className="name">
         <h3>{data.name}</h3>
         <span>SKU: {data.sku}</span>

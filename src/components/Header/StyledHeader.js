@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor, textWhite } from "helpers/styleVariables";
+import { primaryColor } from "helpers/styleVariables";
 
 const StyledHeader = styled.header`
   display: flex;
