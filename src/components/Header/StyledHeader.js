@@ -7,7 +7,8 @@ const StyledHeader = styled.header`
   align-items: center;
   height: 3em;
   gap: 3em;
-  margin-bottom: 2em;
+  max-width: 600px;
+  margin: 0 auto 2em;
   border: 1px solid ${primaryColor};
 
   .logo {

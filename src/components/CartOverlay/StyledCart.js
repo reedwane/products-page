@@ -5,15 +5,18 @@ export const StyledCart = styled.div`
   display: ${(props) => (props.show ? "block" : "none")};
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  padding: 10% 5%;
+  padding: 5% 5%;
   background: rgba(0, 0, 0, 0.383);
   box-shadow: 0px 0px 10px black;
 
   .cart {
     background-color: white;
-    height: 100%;
+    min-height: 15em;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 2em;
   }
 
   .product {
@@ -33,5 +36,9 @@ export const StyledCart = styled.div`
   .controls {
     display: flex;
     gap: 0.5rem;
+
+    span {
+      cursor: pointer;
+    }
   }
 `;

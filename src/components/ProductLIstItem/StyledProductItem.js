@@ -39,6 +39,7 @@ export const StyledProductItem = styled.li`
     padding: 0.3em;
     height: 2em;
     width: fit-content;
+    cursor: pointer;
   }
 
   .description {
@@ -61,6 +62,7 @@ export const StyledProductItem = styled.li`
 
     .expand {
       position: absolute;
+      cursor: pointer;
       right: 0;
       top: 0;
       color: ${primaryColor};
