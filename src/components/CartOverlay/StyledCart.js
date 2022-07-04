@@ -1,4 +1,8 @@
-import { secondaryColor } from "helpers/styleVariables";
+import {
+  primaryColor,
+  secondaryColor,
+  textWhite,
+} from "helpers/styleVariables";
 import styled from "styled-components";
 
 export const StyledCart = styled.div`
@@ -12,11 +16,18 @@ export const StyledCart = styled.div`
   box-shadow: 0px 0px 10px black;
 
   .cart {
+    position: relative;
+    overflow: auto;
     background-color: white;
-    min-height: 15em;
+    height: 80%;
+    max-height: fit-content;
     max-width: 600px;
     margin: 0 auto;
     padding-bottom: 2em;
+  }
+
+  .cart__products {
+    min-height: 80%;
   }
 
   .product {
@@ -36,9 +47,32 @@ export const StyledCart = styled.div`
   .controls {
     display: flex;
     gap: 0.5rem;
+    position: relative;
+    align-items: center;
+
+    h4 {
+      position: absolute;
+      top: -2em;
+    }
 
     span {
       cursor: pointer;
     }
+  }
+
+  .empty-cart {
+    position: relative;
+    top: 10em;
+    font-weight: bold;
+  }
+
+  .clear {
+    background-color: ${primaryColor};
+    display: inline-block;
+    color: ${textWhite};
+    font-weight: 500;
+    padding: 0.3em;
+    margin-top: 0.5em;
+    cursor: pointer;
   }
 `;

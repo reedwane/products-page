@@ -12,18 +12,20 @@ const StyledHeader = styled.header`
   border: 1px solid ${primaryColor};
 
   .logo {
-    width: 1em;
+    width: 1.5em;
   }
 
   .cart-icon {
     color: ${primaryColor};
+    font-size: 1.5rem;
   }
 
   .item-number {
     color: ${primaryColor};
     font-size: 0.8rem;
     position: relative;
-    top: -0.5rem;
+    top: -1rem;
+    font-weight: bold;
   }
 `;
 

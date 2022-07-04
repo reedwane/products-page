@@ -5,7 +5,15 @@ import { useProductsContext } from "context/ProductsContext";
 
 const ProductItem = ({ data }) => {
   const [expand, setExpand] = useState(false);
-  const { cartItems, setCartItems, setOpenCart } = useProductsContext();
+  const {
+    cartItems,
+    setCartItems,
+    setOpenCart,
+    cartTotalItems,
+    setCartTotalItems,
+    totalCartPrice,
+    setTotalCartPrice,
+  } = useProductsContext();
 
   const handleAdd = (item) => {
     let obj = {
@@ -16,6 +24,8 @@ const ProductItem = ({ data }) => {
     if (cartItems.length === 0) {
       setCartItems([{ ...obj }]);
       setOpenCart(true);
+      setCartTotalItems(cartTotalItems + 1);
+      setTotalCartPrice(totalCartPrice + obj.price);
     } else {
       if (!cartItems?.find((product) => product.name === item.name)) {
         setCartItems([
@@ -24,8 +34,9 @@ const ProductItem = ({ data }) => {
             ...obj,
           },
         ]);
-        // cartItems.push(obj);
-        console.log(cartItems);
+
+        setCartTotalItems(cartTotalItems + 1);
+        setTotalCartPrice(totalCartPrice + obj.price);
       }
 
       setOpenCart(true);

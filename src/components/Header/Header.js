@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useProductsContext } from "context/ProductsContext";
 
 const Header = () => {
-  const { setOpenCart } = useProductsContext();
+  const { setOpenCart, cartTotalItems } = useProductsContext();
 
   return (
     <StyledHeader>
@@ -12,7 +12,7 @@ const Header = () => {
       <h3>Shopping Page</h3>
       <div className="cart-logo" onClick={() => setOpenCart(true)}>
         <AiOutlineShoppingCart className="cart-icon" />
-        <span className="item-number">0</span>
+        <span className="item-number">{cartTotalItems}</span>
       </div>
     </StyledHeader>
   );

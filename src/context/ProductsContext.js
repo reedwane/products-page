@@ -1,4 +1,5 @@
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext } from "react";
+import { useLocalStorage } from "usehooks-ts";
 
 export const ProductsContext = createContext();
 
@@ -8,10 +9,17 @@ export const useProductsContext = () => {
 };
 
 export const ProductsProvider = ({ children }) => {
-  const [data, updateData] = useState();
-  const [cartItems, updateCartItems] = useState([]);
-  const cartTotalItems = 0;
-  const [openCart, updateOpenCart] = useState(false);
+  const [data, updateData] = useLocalStorage("products-data", null);
+  const [cartItems, updateCartItems] = useLocalStorage("cartItems", []);
+  const [cartTotalItems, updateCartTotalItems] = useLocalStorage(
+    "cartTotalItems",
+    0
+  );
+  const [openCart, updateOpenCart] = useLocalStorage("openCart", false);
+  const [totalCartPrice, updateTotalPrice] = useLocalStorage(
+    "totalCartPrice",
+    0
+  );
 
   const setData = (data) => {
     updateData(data);
@@ -25,14 +33,25 @@ export const ProductsProvider = ({ children }) => {
     updateCartItems(data);
   };
 
+  const setCartTotalItems = (count) => {
+    updateCartTotalItems(count);
+  };
+
+  const setTotalCartPrice = (amount) => {
+    updateTotalPrice(amount);
+  };
+
   const contexts = {
     data,
     setData,
     cartItems,
     setCartItems,
     cartTotalItems,
+    setCartTotalItems,
     openCart,
     setOpenCart,
+    totalCartPrice,
+    setTotalCartPrice,
   };
 
   return (
